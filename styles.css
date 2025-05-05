@@ -497,6 +497,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
+  justify-content: flex-end;
 }
 
 .chat-message {
@@ -632,7 +633,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1rem 1.5rem 1.2rem 1.5rem;
   max-width: 600px;
   width: 100%;
-  margin: 0 auto;
+  margin: 1.2rem 0 0 0;
   border-top: 1px solid #2d3547;
   position: relative;
 }
