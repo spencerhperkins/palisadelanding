@@ -78,17 +78,40 @@ document.addEventListener('DOMContentLoaded', () => {
             msgDiv.className = `chat-message ${msg.type}`;
             let bubble = document.createElement('div');
             bubble.className = 'bubble';
+            // Add system icons
+            if (msg.type === 'system') {
+                let icon = document.createElement('span');
+                icon.className = 'system-icon';
+                // Pick icon based on message content
+                if (msg.text.toLowerCase().includes('searching')) {
+                    icon.innerHTML = `<svg width="20" height="20" fill="none" viewBox="0 0 20 20"><circle cx="9" cy="9" r="7" stroke="#888" stroke-width="2"/><path d="M15.5 15.5L13 13" stroke="#888" stroke-width="2" stroke-linecap="round"/></svg>`;
+                } else if (msg.text.toLowerCase().includes('found')) {
+                    icon.innerHTML = `<svg width="20" height="20" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="#888" stroke-width="2"/><rect x="9" y="5" width="2" height="6" rx="1" fill="#888"/><rect x="9" y="13" width="2" height="2" rx="1" fill="#888"/></svg>`;
+                } else if (msg.text.toLowerCase().includes('analyzing')) {
+                    icon.innerHTML = `<svg width="20" height="20" fill="none" viewBox="0 0 20 20"><rect x="3" y="5" width="14" height="10" rx="2" stroke="#888" stroke-width="2"/><path d="M7 9h6" stroke="#888" stroke-width="2" stroke-linecap="round"/></svg>`;
+                } else {
+                    icon.innerHTML = `<svg width="20" height="20" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="#888" stroke-width="2"/></svg>`;
+                }
+                bubble.appendChild(icon);
+            }
             msgDiv.appendChild(bubble);
-            if (msg.type === 'system') bubble.style.marginLeft = '2.2rem';
             chatContainer.appendChild(msgDiv);
             let i = 0;
             function typeChar() {
                 if (i <= msg.text.length) {
-                    bubble.innerHTML = msg.text.slice(0, i) + '<span class="blink">|</span>';
+                    bubble.innerHTML = (msg.type === 'system' ? bubble.innerHTML : '') + msg.text.slice(0, i) + '<span class="blink">|</span>';
                     i++;
                     setTimeout(typeChar, 14 + Math.random() * 18);
                 } else {
-                    bubble.innerHTML = msg.text.replace(/\n/g, '<br>');
+                    if (msg.type === 'system') {
+                        // Re-append icon and text for final render
+                        let icon = bubble.querySelector('.system-icon');
+                        bubble.innerHTML = '';
+                        if (icon) bubble.appendChild(icon);
+                        bubble.innerHTML += msg.text.replace(/\n/g, '<br>');
+                    } else {
+                        bubble.innerHTML = msg.text.replace(/\n/g, '<br>');
+                    }
                     if (msg.yesno) {
                         const row = document.createElement('div');
                         row.className = 'yesno-row';
