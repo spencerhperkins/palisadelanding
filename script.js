@@ -70,19 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
         { type: 'ai', text: "Based on my initial review, Archer owns several patents related to propulsion systems, including tilt rotor design and EVTOL systems, including the '304 and '180 patents.\n\nWould you like more specific information about the scope of the claims?", yesno: true }
     ];
 
-    const chatContainer = document.querySelector('.chat-container');
-    if (chatContainer) {
+    const chatMessagesWrapper = document.querySelector('.chat-messages');
+    if (chatMessagesWrapper) {
         let msgIdx = 0;
         function typeMessage(msg, cb) {
             const msgDiv = document.createElement('div');
             msgDiv.className = `chat-message ${msg.type}`;
             let bubble = document.createElement('div');
             bubble.className = 'bubble';
+            let icon = null;
+            let textNode = null;
             // Add system icons
             if (msg.type === 'system') {
-                let icon = document.createElement('span');
+                icon = document.createElement('span');
                 icon.className = 'system-icon';
-                // Pick icon based on message content
                 if (msg.text.toLowerCase().includes('searching')) {
                     icon.innerHTML = `<svg width="20" height="20" fill="none" viewBox="0 0 20 20"><circle cx="9" cy="9" r="7" stroke="#888" stroke-width="2"/><path d="M15.5 15.5L13 13" stroke="#888" stroke-width="2" stroke-linecap="round"/></svg>`;
                 } else if (msg.text.toLowerCase().includes('found')) {
@@ -93,22 +94,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     icon.innerHTML = `<svg width="20" height="20" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="#888" stroke-width="2"/></svg>`;
                 }
                 bubble.appendChild(icon);
+                textNode = document.createElement('span');
+                bubble.appendChild(textNode);
             }
             msgDiv.appendChild(bubble);
-            chatContainer.appendChild(msgDiv);
+            chatMessagesWrapper.appendChild(msgDiv);
             let i = 0;
             function typeChar() {
                 if (i <= msg.text.length) {
-                    bubble.innerHTML = (msg.type === 'system' ? bubble.innerHTML : '') + msg.text.slice(0, i) + '<span class="blink">|</span>';
+                    if (msg.type === 'system') {
+                        textNode.innerHTML = msg.text.slice(0, i) + '<span class="blink">|</span>';
+                    } else {
+                        bubble.innerHTML = msg.text.slice(0, i) + '<span class="blink">|</span>';
+                    }
                     i++;
                     setTimeout(typeChar, 14 + Math.random() * 18);
                 } else {
                     if (msg.type === 'system') {
-                        // Re-append icon and text for final render
-                        let icon = bubble.querySelector('.system-icon');
-                        bubble.innerHTML = '';
-                        if (icon) bubble.appendChild(icon);
-                        bubble.innerHTML += msg.text.replace(/\n/g, '<br>');
+                        textNode.innerHTML = msg.text.replace(/\n/g, '<br>');
                     } else {
                         bubble.innerHTML = msg.text.replace(/\n/g, '<br>');
                     }
