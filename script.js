@@ -49,27 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Custom Formspree AJAX handler for contact form
-    const contactForm = document.getElementById('contact-form');
-    const successMsg = document.getElementById('form-success-message');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            });
-            if (response.ok) {
-                contactForm.reset();
-                successMsg.style.display = 'block';
-            } else {
-                alert('There was a problem submitting your form. Please try again.');
-            }
-        });
-    }
-
     // Add scroll-based header styling
     const header = document.querySelector('.header');
     if (header) {
