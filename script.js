@@ -13,31 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form submission handling
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const emailInput = contactForm.querySelector('input[type="email"]');
-            const email = emailInput.value;
-
-            // Here you would typically send the email to your backend
-            // For now, we'll just show a success message
-            const successMessage = document.createElement('div');
-            successMessage.className = 'success-message';
-            successMessage.textContent = 'Thank you for joining the waitlist! We\'ll be in touch soon.';
-            successMessage.style.color = 'green';
-            successMessage.style.marginTop = '1rem';
-            
-            contactForm.appendChild(successMessage);
-            emailInput.value = '';
-
-            // Remove the success message after 5 seconds
-            setTimeout(() => {
-                successMessage.remove();
-            }, 5000);
-        });
-    }
+    // Removed custom form submission handler to allow default POST to Formspree
 
     // Add scroll-based header styling
     const header = document.querySelector('.header');
