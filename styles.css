@@ -665,4 +665,21 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.7rem 0.7rem;
     max-width: 90vw;
   }
+}
+
+.chat-message.user.first {
+  background: #e5e7eb;
+  border-radius: 14px;
+  align-self: flex-end;
+  margin-left: auto;
+  margin-right: 0;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.06);
+}
+
+.chat-message.user.first .bubble {
+  background: #e5e7eb;
+  color: #222;
+  border-radius: 14px;
+  font-weight: 600;
+  text-align: right;
 } 

@@ -76,6 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
         function typeMessage(msg, cb) {
             const msgDiv = document.createElement('div');
             msgDiv.className = `chat-message ${msg.type}`;
+            if (msg.type === 'user' && msgIdx === 0) {
+                msgDiv.classList.add('first');
+            }
             let bubble = document.createElement('div');
             bubble.className = 'bubble';
             let icon = null;
