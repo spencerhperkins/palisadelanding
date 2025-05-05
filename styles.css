@@ -391,7 +391,7 @@ h1, h2, h3, h4, h5, h6 {
 .founder-bio h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: var(--primary-blue);
+    color: var(--white);
 }
 
 .founder-bio p {
