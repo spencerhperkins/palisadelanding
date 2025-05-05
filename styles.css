@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: var(--primary-blue);
+    color: var(--white);
 }
 
 .feature-grid {
@@ -193,7 +193,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: var(--primary-blue);
+    color: var(--white);
 }
 
 .use-cases-grid {
@@ -229,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
 .about h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--primary-blue);
+    color: var(--white);
 }
 
 .mission-statement {
@@ -249,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
 .contact h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--primary-blue);
+    color: var(--white);
 }
 
 .contact p {
