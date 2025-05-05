@@ -361,6 +361,71 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+@media (max-width: 600px) {
+    .hero {
+        padding: 4rem 0.5rem 2rem 0.5rem;
+    }
+    .single-line-hero {
+        font-size: 2rem;
+        white-space: normal;
+        word-break: break-word;
+    }
+    .hero-content {
+        padding: 0 0.2rem;
+    }
+    .contact-form,
+    #hero-contact-form {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        align-items: stretch;
+    }
+    .contact-form input,
+    #hero-contact-form input,
+    .contact-form button,
+    #hero-contact-form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 1rem;
+        left: 1rem;
+        background: var(--dark-grey);
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 8px;
+        z-index: 2000;
+    }
+    .nav-links.open {
+        display: flex;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        position: relative;
+        z-index: 2100;
+    }
+    .hamburger span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        background: var(--white);
+        margin: 6px 0;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+}
+
+.hamburger {
+    display: none;
+}
+
 .founder-section {
     padding: 5rem 2rem 4rem 2rem;
     background: var(--accent-navy);
