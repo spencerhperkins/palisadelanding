@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { type: 'system', text: 'Searching patents owned by Archer Aviation, Inc.' },
         { type: 'system', text: 'Found 43 potentially relevant patents and applications' },
         { type: 'system', text: 'Analyzing US Patent Nos. US12024304B2, US11661180B2, and 41 others…' },
-        { type: 'ai', text: "Based on my initial review, Archer owns several patents related to propulsion systems, including tilt rotor design and EVTOL system, including the '304 and '180 patents.\n\nWould you like more specific information about the scope of the claims?", yesno: true }
+        { type: 'ai', text: "Based on my initial review, Archer owns several patents related to propulsion systems, including tilt rotor design and EVTOL systems, including the '304 and '180 patents.\n\nWould you like more specific information about the scope of the claims?", yesno: true }
     ];
 
     const chatContainer = document.querySelector('.chat-container');
@@ -76,10 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         function typeMessage(msg, cb) {
             const msgDiv = document.createElement('div');
             msgDiv.className = `chat-message ${msg.type}`;
-            let avatar = document.createElement('div');
-            avatar.className = 'avatar ' + msg.type;
-            avatar.innerText = '';
-            if (msg.type !== 'system') msgDiv.appendChild(avatar);
             let bubble = document.createElement('div');
             bubble.className = 'bubble';
             msgDiv.appendChild(bubble);
