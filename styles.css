@@ -476,4 +476,149 @@ h1, h2, h3, h4, h5, h6 {
     .founder-bio {
         max-width: 100%;
     }
+}
+
+.ai-demo-chat {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2.5rem 0 2rem 0;
+  background: transparent;
+}
+
+.chat-container {
+  background: #232a3b;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  max-width: 420px;
+  width: 100%;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.chat-message {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.7rem;
+}
+
+.chat-message.user .bubble {
+  background: #2563eb;
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 18px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.chat-message.system .bubble {
+  background: #2d3547;
+  color: #bfc9d1;
+  align-self: flex-start;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 18px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.chat-message.ai .bubble {
+  background: #232a3b;
+  color: #fff;
+  border: 1px solid #3a4256;
+  align-self: flex-start;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 18px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.bubble {
+  padding: 0.85rem 1.1rem;
+  font-size: 1.05rem;
+  max-width: 300px;
+  word-break: break-word;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+  transition: background 0.2s;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #232a3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #bfc9d1;
+  font-weight: 600;
+}
+
+.avatar.user {
+  background: #2563eb;
+  color: #fff;
+}
+
+.yesno-row {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+  justify-content: flex-start;
+}
+
+.yesno-btn {
+  background: #232a3b;
+  color: #fff;
+  border: 1.5px solid #3a4256;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  outline: none;
+  pointer-events: none;
+}
+
+.yesno-btn:last-child {
+  margin-right: 0;
+}
+
+.yesno-btn:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .ai-demo-chat {
+    padding: 1.2rem 0 1rem 0;
+  }
+  .chat-container {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+    max-width: 98vw;
+    min-height: 220px;
+  }
+  .bubble {
+    font-size: 0.98rem;
+    padding: 0.7rem 0.7rem;
+    max-width: 90vw;
+  }
+  .avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 1rem;
+  }
+}
+
+.blink {
+  animation: blink-cursor 1s steps(1) infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 } 

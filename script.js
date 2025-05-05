@@ -60,4 +60,65 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // AI Demo Chat Streaming Effect
+    const chatMessages = [
+        { type: 'user', text: 'What patents does Archer own that cover propulsion systems?' },
+        { type: 'system', text: 'Searching patents owned by Archer Aviation, Inc.' },
+        { type: 'system', text: 'Found 43 potentially relevant patents and applications' },
+        { type: 'system', text: 'Analyzing US Patent Nos. US12024304B2, US11661180B2, and 41 others…' },
+        { type: 'ai', text: "Based on my initial review, Archer owns several patents related to propulsion systems, including tilt rotor design and EVTOL system, including the '304 and '180 patents.\n\nWould you like more specific information about the scope of the claims?", yesno: true }
+    ];
+
+    const chatContainer = document.querySelector('.chat-container');
+    if (chatContainer) {
+        let msgIdx = 0;
+        function typeMessage(msg, cb) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-message ${msg.type}`;
+            let avatar = document.createElement('div');
+            avatar.className = 'avatar ' + msg.type;
+            avatar.innerText = msg.type === 'user' ? '🧑' : (msg.type === 'ai' ? '🤖' : '');
+            if (msg.type !== 'system') msgDiv.appendChild(avatar);
+            let bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            msgDiv.appendChild(bubble);
+            if (msg.type === 'system') bubble.style.marginLeft = '2.2rem';
+            chatContainer.appendChild(msgDiv);
+            let i = 0;
+            function typeChar() {
+                if (i <= msg.text.length) {
+                    bubble.innerHTML = msg.text.slice(0, i) + '<span class="blink">|</span>';
+                    i++;
+                    setTimeout(typeChar, 14 + Math.random() * 18);
+                } else {
+                    bubble.innerHTML = msg.text.replace(/\n/g, '<br>');
+                    if (msg.yesno) {
+                        const row = document.createElement('div');
+                        row.className = 'yesno-row';
+                        const yes = document.createElement('button');
+                        yes.className = 'yesno-btn';
+                        yes.innerText = 'Yes';
+                        const no = document.createElement('button');
+                        no.className = 'yesno-btn';
+                        no.innerText = 'No';
+                        row.appendChild(yes);
+                        row.appendChild(no);
+                        bubble.appendChild(row);
+                    }
+                    if (cb) setTimeout(cb, 500);
+                }
+            }
+            typeChar();
+        }
+        function nextMsg() {
+            if (msgIdx < chatMessages.length) {
+                typeMessage(chatMessages[msgIdx], () => {
+                    msgIdx++;
+                    nextMsg();
+                });
+            }
+        }
+        nextMsg();
+    }
 }); 
