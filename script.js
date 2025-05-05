@@ -13,7 +13,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Custom Formspree AJAX handler
+    // Custom Formspree AJAX handler for hero form
+    const heroForm = document.getElementById('hero-contact-form');
+    const heroSuccessMsg = document.getElementById('hero-form-success-message');
+    if (heroForm) {
+        heroForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(heroForm);
+            const response = await fetch(heroForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                heroForm.reset();
+                heroSuccessMsg.style.display = 'block';
+            } else {
+                alert('There was a problem submitting your form. Please try again.');
+            }
+        });
+    }
+
+    // Custom Formspree AJAX handler for contact form
     const contactForm = document.getElementById('contact-form');
     const successMsg = document.getElementById('form-success-message');
     if (contactForm) {
