@@ -361,6 +361,26 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Base hamburger styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    z-index: 2100;
+}
+
+.hamburger span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: var(--white);
+    margin: 6px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
 @media (max-width: 600px) {
     .hero {
         padding: 4rem 0.5rem 2rem 0.5rem;
@@ -405,25 +425,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     .hamburger {
         display: block;
-        cursor: pointer;
-        width: 32px;
-        height: 32px;
-        position: relative;
-        z-index: 2100;
     }
-    .hamburger span {
-        display: block;
-        height: 4px;
-        width: 100%;
-        background: var(--white);
-        margin: 6px 0;
-        border-radius: 2px;
-        transition: 0.3s;
-    }
-}
-
-.hamburger {
-    display: none;
 }
 
 .founder-section {
