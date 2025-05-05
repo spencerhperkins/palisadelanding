@@ -13,7 +13,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Removed custom form submission handler to allow default POST to Formspree
+    // Custom Formspree AJAX handler
+    const contactForm = document.getElementById('contact-form');
+    const successMsg = document.getElementById('form-success-message');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                contactForm.reset();
+                successMsg.style.display = 'block';
+            } else {
+                alert('There was a problem submitting your form. Please try again.');
+            }
+        });
+    }
 
     // Add scroll-based header styling
     const header = document.querySelector('.header');
