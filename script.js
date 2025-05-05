@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             msgDiv.className = `chat-message ${msg.type}`;
             let avatar = document.createElement('div');
             avatar.className = 'avatar ' + msg.type;
-            avatar.innerText = msg.type === 'user' ? '🧑' : (msg.type === 'ai' ? '🤖' : '');
+            avatar.innerText = '';
             if (msg.type !== 'system') msgDiv.appendChild(avatar);
             let bubble = document.createElement('div');
             bubble.className = 'bubble';
