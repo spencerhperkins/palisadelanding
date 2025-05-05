@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
             bubble.className = 'bubble';
             let icon = null;
             let textNode = null;
-            // Add system icons
             if (msg.type === 'system') {
                 icon = document.createElement('span');
                 icon.className = 'system-icon';
