@@ -13,6 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Hamburger menu toggle for mobile
+    const hamburger = document.getElementById('hamburger-menu');
+    const navLinks = document.getElementById('nav-links');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        // Optional: close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+    }
+
     // Custom Formspree AJAX handler for hero form
     const heroForm = document.getElementById('hero-contact-form');
     const heroSuccessMsg = document.getElementById('hero-form-success-message');
