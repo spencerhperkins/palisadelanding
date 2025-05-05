@@ -48,9 +48,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo {
+    color: #fff;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-blue);
 }
 
 .nav-links {
@@ -119,13 +119,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .single-line-hero {
-    white-space: nowrap;
+    color: #fff;
     font-size: clamp(2rem, 7vw, 4rem);
-    margin: 0 auto;
-    display: inline-block;
-    color: var(--white);
     font-weight: 700;
+    white-space: nowrap;
     margin-bottom: 2rem;
+}
+
+.hero-graphic {
+    margin: 2rem auto;
+    max-width: 400px;
+    height: 180px;
+    background: linear-gradient(135deg, #22304a 0%, #2563eb 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 0.8;
+    box-shadow: 0 4px 24px rgba(37,99,235,0.15);
 }
 
 /* Features Section */
