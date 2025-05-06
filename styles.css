@@ -505,11 +505,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slideshow-controls {
+    position: static;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    margin-top: 1.5rem;
+    z-index: 10;
 }
 
 .slideshow-btn {
@@ -551,10 +553,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slideshow-nav {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    margin-top: 1rem;
     display: flex;
     gap: 0.5rem;
     z-index: 10;
@@ -619,13 +619,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .chat-message.system .bubble {
-    background: #f7f7fa;
+    background: transparent;
     color: #444;
     align-self: flex-start;
     border-radius: 14px;
     font-size: 1.01rem;
     display: flex;
     align-items: center;
+    box-shadow: none;
 }
 
 .chat-message.ai .bubble {
