@@ -61,6 +61,73 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Chat Demo Slideshow
+    const chatSlides = document.querySelectorAll('.chat-slide');
+    const navDots = document.querySelectorAll('.nav-dot');
+    let currentSlide = 0;
+
+    // Chat demo content for each slide
+    const chatDemos = [
+        [
+            { type: 'user', text: 'What is Palisade?' },
+            { type: 'system', text: 'Palisade is an AI-powered platform that helps you analyze and understand complex documents. It can extract key information, identify patterns, and provide insights from your documents in seconds.' },
+            { type: 'user', text: 'How does it work?' },
+            { type: 'system', text: 'Simply upload your documents, and our AI will process them to extract relevant information. You can ask questions about the content, and Palisade will provide accurate answers based on the document context.' }
+        ],
+        [
+            { type: 'user', text: 'Can I use Palisade for legal documents?' },
+            { type: 'system', text: 'Yes! Palisade is particularly effective for legal documents. It can help identify key clauses, extract important dates, and summarize complex legal language in a way that\'s easy to understand.' },
+            { type: 'user', text: 'What about financial reports?' },
+            { type: 'system', text: 'Absolutely. Palisade can analyze financial reports, extract key metrics, identify trends, and help you understand complex financial data quickly and accurately.' }
+        ],
+        [
+            { type: 'user', text: 'How accurate is Palisade?' },
+            { type: 'system', text: 'Palisade uses advanced AI models trained on millions of documents to ensure high accuracy. It continuously learns and improves from user interactions to provide increasingly precise results.' },
+            { type: 'user', text: 'Is my data secure?' },
+            { type: 'system', text: 'Yes, security is our top priority. All documents are encrypted, and we maintain strict data privacy standards. Your information is never shared with third parties without your explicit consent.' }
+        ]
+    ];
+
+    // Function to show a specific slide
+    function showSlide(index) {
+        chatSlides.forEach(slide => slide.classList.remove('active'));
+        navDots.forEach(dot => dot.classList.remove('active'));
+        
+        chatSlides[index].classList.add('active');
+        navDots[index].classList.add('active');
+        currentSlide = index;
+    }
+
+    // Initialize chat demos for each slide
+    function initializeChatDemos() {
+        chatSlides.forEach((slide, index) => {
+            const chatMessages = slide.querySelector('.chat-messages');
+            const messages = chatDemos[index];
+            
+            messages.forEach((message, msgIndex) => {
+                setTimeout(() => {
+                    typeMessage(chatMessages, message.text, message.type, msgIndex === 0);
+                }, msgIndex * 2000);
+            });
+        });
+    }
+
+    // Add click handlers for navigation dots
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+        });
+    });
+
+    // Auto-advance slides every 10 seconds
+    setInterval(() => {
+        const nextSlide = (currentSlide + 1) % chatSlides.length;
+        showSlide(nextSlide);
+    }, 10000);
+
+    // Initialize the chat demos when the page loads
+    initializeChatDemos();
+
     // AI Demo Chat Streaming Effect
     const chatMessages = [
         { type: 'user', text: 'What patents does Archer own that cover propulsion systems?' },
