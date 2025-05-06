@@ -483,13 +483,11 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 600px;
-    height: 600px;
     padding: 2rem;
     background: #0f172a;
     border-radius: 1rem;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .chat-slideshow {
