@@ -536,19 +536,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .chat-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: none;
     width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .chat-slide.active {
-    opacity: 1;
-    visibility: visible;
+    display: block;
 }
 
 .slideshow-nav {
