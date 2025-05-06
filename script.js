@@ -119,11 +119,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Auto-advance slides every 10 seconds
-    setInterval(() => {
-        const nextSlide = (currentSlide + 1) % chatSlides.length;
-        showSlide(nextSlide);
-    }, 10000);
+    // Manual navigation with Previous/Next buttons
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            let prev = currentSlide - 1;
+            if (prev < 0) prev = chatSlides.length - 1;
+            showSlide(prev);
+        });
+        nextBtn.addEventListener('click', () => {
+            let next = (currentSlide + 1) % chatSlides.length;
+            showSlide(next);
+        });
+    }
 
     // Initialize the chat demos when the page loads
     initializeChatDemos();

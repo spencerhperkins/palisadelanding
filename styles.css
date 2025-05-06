@@ -88,9 +88,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-    padding: 8rem 2rem 4rem;
+    padding: 4rem 2rem 2rem;
     background: linear-gradient(135deg, var(--accent-navy) 0%, var(--navy-bg) 100%);
-    min-height: 80vh;
+    min-height: 55vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -480,6 +480,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .ai-demo-chat {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 600px;
@@ -495,6 +496,40 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.slideshow-btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.slideshow-btn:disabled {
+    background: #bfc9d1;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.slideshow-btn:hover:not(:disabled) {
+    background: #1741b6;
 }
 
 .chat-slide {
