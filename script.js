@@ -85,6 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: 'system', text: 'Palisade uses advanced AI models trained on millions of documents to ensure high accuracy. It continuously learns and improves from user interactions to provide increasingly precise results.' },
             { type: 'user', text: 'Is my data secure?' },
             { type: 'system', text: 'Yes, security is our top priority. All documents are encrypted, and we maintain strict data privacy standards. Your information is never shared with third parties without your explicit consent.' }
+        ],
+        [
+            { type: 'user', text: 'What patents does Archer own that cover propulsion systems?' },
+            { type: 'system', text: 'Searching patents owned by Archer Aviation, Inc.' },
+            { type: 'system', text: 'Found 43 potentially relevant patents and applications' },
+            { type: 'system', text: 'Analyzing US Patent Nos. US12024304B2, US11661180B2, and 41 others…' },
+            { type: 'ai', text: "Based on my initial review, Archer owns several patents related to propulsion systems, including tilt rotor design and EVTOL systems, including the '304 and '180 patents.\n\nWould you like more specific information about the scope of the claims?", yesno: true }
         ]
     ];
 
@@ -136,15 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize the chat demos when the page loads
     initializeChatDemos();
-
-    // AI Demo Chat Streaming Effect
-    const chatMessages = [
-        { type: 'user', text: 'What patents does Archer own that cover propulsion systems?' },
-        { type: 'system', text: 'Searching patents owned by Archer Aviation, Inc.' },
-        { type: 'system', text: 'Found 43 potentially relevant patents and applications' },
-        { type: 'system', text: 'Analyzing US Patent Nos. US12024304B2, US11661180B2, and 41 others…' },
-        { type: 'ai', text: "Based on my initial review, Archer owns several patents related to propulsion systems, including tilt rotor design and EVTOL systems, including the '304 and '180 patents.\n\nWould you like more specific information about the scope of the claims?", yesno: true }
-    ];
 
     const chatMessagesWrapper = document.querySelector('.chat-messages');
     if (chatMessagesWrapper) {
