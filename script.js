@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatSlides = document.querySelectorAll('.chat-slide');
     const navDots = document.querySelectorAll('.nav-dot');
     let currentSlide = 0;
+    let streaming = false;
 
     // Define the chat messages for each slide
     const chatDemos = [
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to show a specific slide and stream its messages
     function showSlide(index) {
+        streaming = false; // Cancel any ongoing streaming
         chatSlides.forEach((slide, i) => {
             slide.classList.toggle('active', i === index);
             // Clear previous messages
@@ -105,10 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Streaming/typing effect for each slide's messages
     function streamChatMessages(slideIndex) {
+        streaming = true;
         const chatMessages = chatSlides[slideIndex].querySelector('.chat-messages');
         const messages = chatDemos[slideIndex];
         let msgIdx = 0;
         function typeMessage(msg, idx, cb) {
+            if (!streaming) return;
             if (!msg || typeof msg.text !== 'string') {
                 console.error('Invalid message object:', msg, 'at idx:', idx);
                 if (cb) cb();
@@ -143,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             chatMessages.appendChild(msgDiv);
             let i = 0;
             function typeChar() {
+                if (!streaming) return;
                 if (i <= msg.text.length) {
                     if (msg.type === 'system') {
                         textNode.innerHTML = msg.text.slice(0, i) + '<span class="blink">|</span>';
@@ -176,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
             typeChar();
         }
         function nextMsg() {
+            if (!streaming) return;
             if (msgIdx < messages.length) {
                 typeMessage(messages[msgIdx], msgIdx, () => {
                     msgIdx++;
