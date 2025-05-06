@@ -587,7 +587,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2rem 1.5rem 0 1.5rem;
     max-width: 600px;
     width: 100%;
-    min-height: 340px;
+    min-height: 400px;
+    max-height: 800px;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 0;
