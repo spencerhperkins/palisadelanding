@@ -77,16 +77,19 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: 'ai', text: "Based on my initial review, Archer owns several patents related to propulsion systems, including tilt rotor design and EVTOL systems, including the '304 and '180 patents.\n\nWould you like more specific information about the scope of the claims?", yesno: true }
         ],
         [
-            { type: 'user', text: 'What is Palisade?' },
-            { type: 'system', text: 'Palisade is an AI-powered platform that helps you analyze and understand complex documents. It can extract key information, identify patterns, and provide insights from your documents in seconds.' },
-            { type: 'user', text: 'How does it work?' },
-            { type: 'system', text: 'Simply upload your documents, and our AI will process them to extract relevant information. You can ask questions about the content, and Palisade will provide accurate answers based on the document context.' }
+            { type: 'user', text: 'What companies have patents covering MRNA platforms?' },
+            { type: 'system', text: 'Searching for companies with MRNA patents' },
+            { type: 'ai', text: 'I found 62 companies with at least 5 MRNA-related patents. Would you like me to expand my search to companies with less than 5 MRNA-related patents?', yesno: true },
+            { type: 'system', text: 'Analyzing US Patent Nos. US10272150B2, US12150980B2, and 277 others…' },
+            { type: 'ai', text: "Based on my initial review, Moderna, Novartis, University of Pennsylvania, and University of California are holders of foundational patents covering MRNA vaccine technology. Would you like more specific platforms or corresponding clinical trials?", yesno: true }
         ],
         [
-            { type: 'user', text: 'Can I use Palisade for legal documents?' },
-            { type: 'system', text: 'Yes! Palisade is particularly effective for legal documents. It can help identify key clauses, extract important dates, and summarize complex legal language in a way that\'s easy to understand.' },
-            { type: 'user', text: 'What about financial reports?' },
-            { type: 'system', text: 'Absolutely. Palisade can analyze financial reports, extract key metrics, identify trends, and help you understand complex financial data quickly and accurately.' }
+            { type: 'user', text: 'Can you analyze the validity of US10566289B2 in view of US10468746B2 or similar patents?' },
+            { type: 'ai', text: 'Yes, I will begin by creating a list of all the claims in US10566289B2, and will identify relevant claim language in US10468746B2 and similar patents that matches the meaning of the claims using semantic searching.' },
+            { type: 'system', text: 'Searchihing for disclosures in US10566289B2 that are relevant to independent claims 1, 5, and 9' },
+            { type: 'system', text: 'Mapping the claim language to the disclosures.' },
+            { type: 'system', text: 'Analyzing the initial results to determine the strength of the invalidity argument.' },
+            { type: 'ai', text: 'I have prepared a claim chart covering the invalidity of independent claims 1, 5, and 9 of US10566289B2 in view of US10468746B2. Would you like more specific information about the claims or the mapping results?', yesno: true }
         ]
     ];
 
