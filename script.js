@@ -61,13 +61,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Chat Demo Slideshow
+    // --- Unified Chat Demo Slideshow with Streaming Effect ---
     const chatSlides = document.querySelectorAll('.chat-slide');
     const navDots = document.querySelectorAll('.nav-dot');
     let currentSlide = 0;
 
-    // Chat demo content for each slide
+    // Define the chat messages for each slide
     const chatDemos = [
+        [
+            { type: 'user', text: 'What patents does Archer own that cover propulsion systems?' },
+            { type: 'system', text: 'Searching patents owned by Archer Aviation, Inc.' },
+            { type: 'system', text: 'Found 43 potentially relevant patents and applications' },
+            { type: 'system', text: 'Analyzing US Patent Nos. US12024304B2, US11661180B2, and 41 others…' },
+            { type: 'ai', text: "Based on my initial review, Archer owns several patents related to propulsion systems, including tilt rotor design and EVTOL systems, including the '304 and '180 patents.\n\nWould you like more specific information about the scope of the claims?", yesno: true }
+        ],
         [
             { type: 'user', text: 'What is Palisade?' },
             { type: 'system', text: 'Palisade is an AI-powered platform that helps you analyze and understand complex documents. It can extract key information, identify patterns, and provide insights from your documents in seconds.' },
@@ -79,73 +86,27 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: 'system', text: 'Yes! Palisade is particularly effective for legal documents. It can help identify key clauses, extract important dates, and summarize complex legal language in a way that\'s easy to understand.' },
             { type: 'user', text: 'What about financial reports?' },
             { type: 'system', text: 'Absolutely. Palisade can analyze financial reports, extract key metrics, identify trends, and help you understand complex financial data quickly and accurately.' }
-        ],
-        [
-            { type: 'user', text: 'How accurate is Palisade?' },
-            { type: 'system', text: 'Palisade uses advanced AI models trained on millions of documents to ensure high accuracy. It continuously learns and improves from user interactions to provide increasingly precise results.' },
-            { type: 'user', text: 'Is my data secure?' },
-            { type: 'system', text: 'Yes, security is our top priority. All documents are encrypted, and we maintain strict data privacy standards. Your information is never shared with third parties without your explicit consent.' }
-        ],
-        [
-            { type: 'user', text: 'What patents does Archer own that cover propulsion systems?' },
-            { type: 'system', text: 'Searching patents owned by Archer Aviation, Inc.' },
-            { type: 'system', text: 'Found 43 potentially relevant patents and applications' },
-            { type: 'system', text: 'Analyzing US Patent Nos. US12024304B2, US11661180B2, and 41 others…' },
-            { type: 'ai', text: "Based on my initial review, Archer owns several patents related to propulsion systems, including tilt rotor design and EVTOL systems, including the '304 and '180 patents.\n\nWould you like more specific information about the scope of the claims?", yesno: true }
         ]
     ];
 
-    // Function to show a specific slide
+    // Function to show a specific slide and stream its messages
     function showSlide(index) {
-        chatSlides.forEach(slide => slide.classList.remove('active'));
+        chatSlides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+            // Clear previous messages
+            const chatMessages = slide.querySelector('.chat-messages');
+            if (chatMessages) chatMessages.innerHTML = '';
+        });
         navDots.forEach(dot => dot.classList.remove('active'));
-        
-        chatSlides[index].classList.add('active');
         navDots[index].classList.add('active');
         currentSlide = index;
+        streamChatMessages(index);
     }
 
-    // Initialize chat demos for each slide
-    function initializeChatDemos() {
-        chatSlides.forEach((slide, index) => {
-            const chatMessages = slide.querySelector('.chat-messages');
-            const messages = chatDemos[index];
-            
-            messages.forEach((message, msgIndex) => {
-                setTimeout(() => {
-                    typeMessage(chatMessages, message.text, message.type, msgIndex === 0);
-                }, msgIndex * 2000);
-            });
-        });
-    }
-
-    // Add click handlers for navigation dots
-    navDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
-        });
-    });
-
-    // Manual navigation with Previous/Next buttons
-    const prevBtn = document.getElementById('prev-slide');
-    const nextBtn = document.getElementById('next-slide');
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => {
-            let prev = currentSlide - 1;
-            if (prev < 0) prev = chatSlides.length - 1;
-            showSlide(prev);
-        });
-        nextBtn.addEventListener('click', () => {
-            let next = (currentSlide + 1) % chatSlides.length;
-            showSlide(next);
-        });
-    }
-
-    // Initialize the chat demos when the page loads
-    initializeChatDemos();
-
-    const chatMessagesWrapper = document.querySelector('.chat-messages');
-    if (chatMessagesWrapper) {
+    // Streaming/typing effect for each slide's messages
+    function streamChatMessages(slideIndex) {
+        const chatMessages = chatSlides[slideIndex].querySelector('.chat-messages');
+        const messages = chatDemos[slideIndex];
         let msgIdx = 0;
         function typeMessage(msg, cb) {
             const msgDiv = document.createElement('div');
@@ -174,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 bubble.appendChild(textNode);
             }
             msgDiv.appendChild(bubble);
-            chatMessagesWrapper.appendChild(msgDiv);
+            chatMessages.appendChild(msgDiv);
             let i = 0;
             function typeChar() {
                 if (i <= msg.text.length) {
@@ -210,8 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
             typeChar();
         }
         function nextMsg() {
-            if (msgIdx < chatMessages.length) {
-                typeMessage(chatMessages[msgIdx], () => {
+            if (msgIdx < messages.length) {
+                typeMessage(messages[msgIdx], () => {
                     msgIdx++;
                     nextMsg();
                 });
@@ -219,4 +180,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         nextMsg();
     }
+
+    // Navigation dots
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+        });
+    });
+
+    // Manual navigation with Previous/Next buttons
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            let prev = currentSlide - 1;
+            if (prev < 0) prev = chatSlides.length - 1;
+            showSlide(prev);
+        });
+        nextBtn.addEventListener('click', () => {
+            let next = (currentSlide + 1) % chatSlides.length;
+            showSlide(next);
+        });
+    }
+
+    // Initialize the first slide on page load
+    showSlide(0);
 }); 
