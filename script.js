@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: 'system', text: 'Searching for companies with MRNA patents' },
             { type: 'ai', text: 'I found 62 companies with at least 5 MRNA-related patents. Would you like me to expand my search to companies with less than 5 MRNA-related patents?', yesno: true },
             { type: 'system', text: 'Analyzing US Patent Nos. US10272150B2, US12150980B2, and 277 others…' },
-            { type: 'ai', text: "Based on my initial review, Moderna, Novartis, University of Pennsylvania, and University of California are holders of foundational patents covering MRNA vaccine technology. Would you like more specific platforms or corresponding clinical trials?", yesno: true }
+            { type: 'ai', text: "Based on my initial review, Moderna, Novartis, University of Pennsylvania, and University of California are holders of foundational patents covering MRNA vaccine technology. Would you like more specific information about the platforms or corresponding clinical trials?", yesno: true }
         ],
         [
             { type: 'user', text: 'Can you analyze the validity of US10566289B2 in view of US10468746B2 or similar patents?' },
