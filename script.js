@@ -108,10 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const chatMessages = chatSlides[slideIndex].querySelector('.chat-messages');
         const messages = chatDemos[slideIndex];
         let msgIdx = 0;
-        function typeMessage(msg, cb) {
+        function typeMessage(msg, idx, cb) {
             const msgDiv = document.createElement('div');
             msgDiv.className = `chat-message ${msg.type}`;
-            if (msg.type === 'user' && msgIdx === 0) {
+            if (msg.type === 'user' && idx === 0) {
                 msgDiv.classList.add('first');
             }
             let bubble = document.createElement('div');
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         function nextMsg() {
             if (msgIdx < messages.length) {
-                typeMessage(messages[msgIdx], () => {
+                typeMessage(messages[msgIdx], msgIdx, () => {
                     msgIdx++;
                     nextMsg();
                 });
