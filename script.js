@@ -109,6 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const messages = chatDemos[slideIndex];
         let msgIdx = 0;
         function typeMessage(msg, idx, cb) {
+            if (!msg || typeof msg.text !== 'string') {
+                console.error('Invalid message object:', msg, 'at idx:', idx);
+                if (cb) cb();
+                return;
+            }
             const msgDiv = document.createElement('div');
             msgDiv.className = `chat-message ${msg.type}`;
             if (msg.type === 'user' && idx === 0) {
