@@ -494,12 +494,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .chat-slideshow {
     position: relative;
+    max-width: 600px;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 }
 
 .slideshow-controls {
@@ -576,6 +578,16 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(37, 99, 235, 0.5);
 }
 
+.chat-messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    overflow-y: auto;
+    padding-bottom: 0.5rem;
+    min-height: 0;
+}
+
 .chat-container {
     background: #fff;
     border-radius: 18px;
@@ -589,16 +601,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0;
     justify-content: flex-end;
     height: 100%;
-}
-
-.chat-messages {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
-    overflow-y: auto;
-    padding-bottom: 0.5rem;
-    min-height: 0;
+    margin: 0 auto;
 }
 
 .chat-message {
