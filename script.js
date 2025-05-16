@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [
             { type: 'user', text: 'Can you analyze the validity of US10566289B2 in view of US10468746B2 or similar patents?' },
             { type: 'ai', text: 'Yes, I will begin by creating a list of all the claims in US10566289B2, and will identify relevant claim language in US10468746B2 and similar patents that matches the meaning of the claims using semantic searching.' },
-            { type: 'system', text: 'Searchihing for disclosures in US10566289B2 that are relevant to independent claims 1, 5, and 9' },
+            { type: 'system', text: 'Searching for disclosures in US10566289B2 that are relevant to independent claims 1, 5, and 9' },
             { type: 'system', text: 'Mapping the claim language to the disclosures.' },
             { type: 'system', text: 'Analyzing the initial results to determine the strength of the invalidity argument.' },
             { type: 'ai', text: 'I have prepared a claim chart covering the invalidity of independent claims 1, 5, and 9 of US10566289B2 in view of US10468746B2. Would you like more specific information about the claims or the mapping results?', yesno: true }
