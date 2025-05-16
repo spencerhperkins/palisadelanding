@@ -17,7 +17,7 @@
 }
 
 body {
-    background: var(--navy-bg);
+    background: var(--navy-bg) !important;
     color: var(--white);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
     padding: 4rem 2rem 2rem;
-    background: transparent !important;
+    background: var(--navy-bg) !important;
     min-height: 55vh;
     display: flex;
     align-items: center;
@@ -102,6 +102,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: none !important;
 }
 
 .hero h1 {
@@ -125,6 +126,7 @@ h1, h2, h3, h4, h5, h6 {
     white-space: nowrap;
     margin-bottom: 2rem;
     margin-top: 4rem;
+    background: none !important;
 }
 
 .hero-graphic {
@@ -806,7 +808,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: stretch;
     gap: 2rem;
     max-width: 1400px;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
+    padding: 0;
 }
 .hero-chat-row .hero,
 .hero-chat-row .ai-demo-chat {
@@ -828,7 +831,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Scale down chat demo */
 .hero-chat-row .ai-demo-chat {
-    max-width: 520px;
+    max-width: 600px;
     min-width: 0;
     padding: 1.5rem 0.5rem;
     margin: 2rem auto 2rem 2rem;
