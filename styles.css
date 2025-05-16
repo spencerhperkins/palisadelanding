@@ -479,12 +479,12 @@ h1, h2, h3, h4, h5, h6 {
 .founder-bio h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: #fff !important;
+    color: var(--accent-navy) !important;
 }
 
 .founder-bio p {
     font-size: 1.15rem;
-    color: #fff !important;
+    color: var(--accent-navy) !important;
     margin-bottom: 0.5rem;
 }
 
@@ -500,7 +500,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .founder-section *, .founder-bio *, .founder-bio h3, .founder-bio p {
-    color: #fff !important;
+    color: var(--accent-navy) !important;
 }
 
 .ai-demo-chat {
@@ -514,6 +514,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 1rem;
     position: relative;
     overflow: visible;
+    margin-top: 6rem !important;
 }
 
 .chat-slideshow {
@@ -601,7 +602,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.4rem;
     overflow-y: auto;
     padding-top: 1.5rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0 !important;
     min-height: 0;
 }
 
@@ -620,6 +621,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0;
     justify-content: flex-end;
     margin: 0 auto;
+    padding-bottom: 0 !important;
 }
 
 .chat-message {
