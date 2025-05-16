@@ -504,12 +504,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ai-demo-chat {
-    padding-top: 5.5rem;
+    padding-top: 10rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 6rem;
+    padding: 2rem;
     background: #0f172a;
     border-radius: 1rem;
     position: relative;
