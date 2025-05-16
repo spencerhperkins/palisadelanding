@@ -808,4 +808,41 @@ h1, h2, h3, h4, h5, h6 {
     .hero-chat-row .ai-demo-chat {
         max-width: 100%;
     }
+}
+
+/* Scale down chat demo */
+.hero-chat-row .ai-demo-chat {
+    max-width: 420px;
+    min-width: 0;
+    padding: 1.5rem 0.5rem;
+    margin: 2rem auto 2rem 2rem;
+    background: var(--navy-bg) !important;
+    box-shadow: 0 4px 24px rgba(16,24,38,0.10);
+    align-self: center;
+}
+
+/* Remove gray background from chat demo */
+.ai-demo-chat {
+    background: var(--navy-bg) !important;
+}
+
+/* Allow hero h1 to wrap and fit */
+.hero h1, .single-line-hero {
+    white-space: normal !important;
+    word-break: break-word;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+    text-align: left;
+}
+
+@media (max-width: 1000px) {
+    .hero-chat-row .ai-demo-chat {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .hero h1, .single-line-hero {
+        text-align: center;
+    }
 } 
