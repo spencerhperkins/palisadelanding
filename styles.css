@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
     padding: 4rem 2rem 2rem;
-    background: linear-gradient(135deg, var(--accent-navy) 0%, var(--navy-bg) 100%);
+    background: #6b7280 !important; /* mid-tone grey */
     min-height: 55vh;
     display: flex;
     align-items: center;
@@ -146,14 +146,14 @@ h1, h2, h3, h4, h5, h6 {
 /* Features Section */
 .features {
     padding: 6rem 2rem;
-    background-color: var(--dark-grey);
+    background-color: #f3f4f6 !important; /* light gray */
 }
 
 .features h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: var(--white);
+    color: #111 !important;
 }
 
 .feature-grid {
@@ -187,14 +187,14 @@ h1, h2, h3, h4, h5, h6 {
 /* Use Cases Section */
 .use-cases {
     padding: 6rem 2rem;
-    background-color: var(--dark-grey);
+    background-color: #f3f4f6 !important; /* light gray */
 }
 
 .use-cases h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: var(--white);
+    color: #111 !important;
 }
 
 .use-cases-grid {
@@ -223,14 +223,14 @@ h1, h2, h3, h4, h5, h6 {
 /* About Section */
 .about {
     padding: 6rem 2rem;
-    background-color: var(--dark-grey);
+    background-color: #f3f4f6 !important; /* light gray */
     text-align: center;
 }
 
 .about h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--white);
+    color: #111 !important;
 }
 
 .mission-statement {
@@ -670,13 +670,21 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none;
 }
 
+.yesno-btn:first-child {
+    background: #22c55e;
+    color: #fff;
+    border-color: #16a34a;
+}
+
 .yesno-btn:last-child {
+    background: #ef4444;
+    color: #fff;
+    border-color: #b91c1c;
     margin-right: 0;
 }
 
 .yesno-btn:hover {
-    background: #2563eb;
-    color: #fff;
+    filter: brightness(0.95);
 }
 
 .blink {
@@ -772,4 +780,32 @@ h1, h2, h3, h4, h5, h6 {
 .chat-message.system .bubble {
     display: flex;
     align-items: center;
+}
+
+/* --- HERO & CHAT SIDE BY SIDE --- */
+.hero-chat-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto 0 auto;
+}
+.hero-chat-row .hero,
+.hero-chat-row .ai-demo-chat {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 50%;
+}
+
+@media (max-width: 1000px) {
+    .hero-chat-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .hero-chat-row .hero,
+    .hero-chat-row .ai-demo-chat {
+        max-width: 100%;
+    }
 } 
