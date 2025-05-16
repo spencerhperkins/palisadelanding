@@ -504,7 +504,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ai-demo-chat {
-    padding-top: 10rem;
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -514,7 +514,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 1rem;
     position: relative;
     overflow: visible;
-    margin-top: 6rem !important;
+    margin-top: 10rem !important;
 }
 
 .chat-slideshow {
@@ -610,7 +610,7 @@ h1, h2, h3, h4, h5, h6 {
     background: #fff !important;
     border-radius: 18px !important;
     box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10) !important;
-    padding: 2rem 1.5rem 0 1.5rem;
+    padding: 2rem 0 0 0;
     max-width: 600px;
     width: 100%;
     min-height: 400px;
@@ -854,7 +854,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Remove gray background from chat demo */
 .ai-demo-chat {
     background: var(--navy-bg) !important;
-    margin-top: 3.5rem !important;
+    margin-top: 6rem !important;
     padding-top: 0 !important;
 }
 
