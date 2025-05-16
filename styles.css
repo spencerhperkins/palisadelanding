@@ -499,6 +499,10 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.founder-section *, .founder-bio *, .founder-bio h3, .founder-bio p {
+    color: #fff !important;
+}
+
 .ai-demo-chat {
     padding-top: 3.5rem;
     display: flex;
@@ -596,6 +600,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     gap: 0.4rem;
     overflow-y: auto;
+    padding-top: 1.5rem;
     padding-bottom: 0.5rem;
     min-height: 0;
 }
