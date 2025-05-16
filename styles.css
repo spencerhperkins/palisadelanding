@@ -909,4 +909,13 @@ section {
 
 .footer, .feature-card, .use-case-card {
     background: var(--accent-navy) !important;
+}
+
+section:not(.hero) {
+    background: #f8fafc !important;
+}
+
+.features, .use-cases, .about {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
 } 
