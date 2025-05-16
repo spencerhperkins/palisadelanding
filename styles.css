@@ -244,7 +244,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mission-statement {
-    background: var(--navy-bg);
+    background: var(--accent-navy) !important;
     color: #fff;
     padding: 2rem 2.5rem;
     border-radius: 1.5rem;
@@ -888,4 +888,23 @@ section {
 
 .about {
     padding-bottom: 3rem;
+}
+
+/* Remove dark navy stripes and use accent-navy for banners */
+section {
+    background: none !important;
+    border: none !important;
+}
+
+/* If there are horizontal banners/stripes, use accent-navy */
+.horizontal-banner, .section-divider {
+    background: var(--accent-navy) !important;
+    height: 32px;
+    width: 100vw;
+    margin: 0;
+    border: none;
+}
+
+.footer, .feature-card, .use-case-card {
+    background: var(--accent-navy) !important;
 } 
