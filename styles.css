@@ -406,9 +406,7 @@ h1, h2, h3, h4, h5, h6 {
         padding: 4rem 0.5rem 2rem 0.5rem;
     }
     .single-line-hero {
-        font-size: 2rem;
-        white-space: normal;
-        word-break: break-word;
+        margin-top: 3rem !important;
     }
     .hero-content {
         padding: 0 0.2rem;
