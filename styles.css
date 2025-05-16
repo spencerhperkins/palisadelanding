@@ -150,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 3rem;
     padding-bottom: 3rem;
     margin-bottom: 2rem;
-    background-color: #f3f4f6 !important; /* light gray */
+    background-color: #f8fafc !important;
 }
 
 .features h2 {
@@ -193,7 +193,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 3rem;
     padding-bottom: 3rem;
     margin-bottom: 2rem;
-    background-color: #f3f4f6 !important; /* light gray */
+    background-color: #f8fafc !important;
 }
 
 .use-cases h2 {
@@ -230,7 +230,7 @@ h1, h2, h3, h4, h5, h6 {
 .about {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    background-color: #f3f4f6 !important; /* light gray */
+    background-color: #f8fafc !important;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -868,10 +868,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Remove card effect from chat slideshow and chat container */
-.ai-demo-chat, .chat-slideshow, .chat-container {
-    background: transparent !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
+/* .ai-demo-chat, .chat-slideshow, .chat-container { ... } */
+
+/* Only message bubbles and input bar retain their backgrounds */
+
+/* Remove navy stripes between sections */
+section {
+    background: none !important;
+    border: none !important;
 }
 
-/* Only message bubbles and input bar retain their backgrounds */ 
+/* Remove any extra margin or padding that could reveal navy */
+.features, .use-cases, .about {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.about {
+    padding-bottom: 3rem;
+} 
