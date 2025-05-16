@@ -807,7 +807,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
@@ -846,6 +846,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Remove gray background from chat demo */
 .ai-demo-chat {
     background: var(--navy-bg) !important;
+    margin-top: 3.5rem !important;
+    padding-top: 0 !important;
 }
 
 /* Allow hero h1 to wrap and fit */
