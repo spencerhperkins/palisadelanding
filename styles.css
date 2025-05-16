@@ -149,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
 .features {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0 !important;
     background-color: #f8fafc !important;
 }
 
@@ -192,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 .use-cases {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0 !important;
     background-color: #f8fafc !important;
 }
 
@@ -235,6 +235,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 0 !important;
 }
 
 .about h2 {
@@ -498,6 +499,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ai-demo-chat {
+    padding-top: 3.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
