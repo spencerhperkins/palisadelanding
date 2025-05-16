@@ -450,7 +450,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .founder-section {
     padding: 5rem 2rem 4rem 2rem;
-    background: var(--accent-navy);
+    background: var(--accent-navy) !important;
+    color: #fff !important;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -478,12 +479,12 @@ h1, h2, h3, h4, h5, h6 {
 .founder-bio h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: var(--white);
+    color: #fff !important;
 }
 
 .founder-bio p {
     font-size: 1.15rem;
-    color: var(--white);
+    color: #fff !important;
     margin-bottom: 0.5rem;
 }
 
@@ -603,7 +604,7 @@ h1, h2, h3, h4, h5, h6 {
     background: #fff !important;
     border-radius: 18px !important;
     box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10) !important;
-    padding: 6rem 1.5rem 0 1.5rem;
+    padding: 2rem 1.5rem 4rem 1.5rem;
     max-width: 600px;
     width: 100%;
     min-height: 400px;
