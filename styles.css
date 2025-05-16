@@ -812,12 +812,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Scale down chat demo */
 .hero-chat-row .ai-demo-chat {
-    max-width: 420px;
+    max-width: 520px;
     min-width: 0;
     padding: 1.5rem 0.5rem;
     margin: 2rem auto 2rem 2rem;
     background: var(--navy-bg) !important;
-    box-shadow: 0 4px 24px rgba(16,24,38,0.10);
+    box-shadow: none;
+    border-radius: 0;
     align-self: center;
 }
 
@@ -845,4 +846,13 @@ h1, h2, h3, h4, h5, h6 {
     .hero h1, .single-line-hero {
         text-align: center;
     }
-} 
+}
+
+/* Remove card effect from chat slideshow and chat container */
+.ai-demo-chat, .chat-slideshow, .chat-container {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* Only message bubbles and input bar retain their backgrounds */ 
